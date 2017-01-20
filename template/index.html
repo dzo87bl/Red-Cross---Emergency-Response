@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<!-- META -->
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
+		<meta name="copyright" content=""/>
+		<meta name="generator" content=""/>
+		<meta name="distribution" content=""/>
+		<meta name="date" content=""/>
+		<!-- SCRIPTS -->
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+		<script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+		<!-- STYLE -->
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title>EMERGENCY KIT - Red Cross</title>
+		<!-- LINK -->
+		<link rel="shortcut icon" type="image/png" href="img/ico/favicon.png"/>
+		<!-- PLUGINS -->
+		<link rel="stylesheet" type="text/css" href="plugins/font-awesome-4.7.0/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="plugins/animate/animate.min.css"/>
+		<link rel="stylesheet" type="text/css" href="plugins/hover/hover.css"/>
+		<script src="plugins/pace/pace.js" type="text/javascript"></script>
+		<script src="plugins/smooth-mouse-scrolling-scrollspeed/jQuery.scrollSpeed.js" type="text/javascript"></script>
+		<script type="text/javascript" src="plugins/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+		<script type="text/javascript" src="plugins/freewall/freewall.js"></script>
+		<!-- GOOGLE -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+	<body>
+		<!-- header -->
+		<div class="container-fluid" id="header">
+			<div class="container">
+				<div class="col-md-12">
+					<h1 class="text-center text-uppercase color-red">EMERGENCY KIT</h1>
+					<h3 class="text-center color-blue">Visual Checklist for Disaster Supplies</h3>
+					<p class="text-center">
+						Use this checklist of items suggested by the <span class="color-red">Red Cross</span> to put together a disaster preparedness emergency kit.
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- / header -->
+		<!-- hero -->
+		<div class="container-fluid" id="hero">
+			<div class="container">
+				<div class="col-md-12">
+					<img src="img/tpl/logo.png" class="img-responsive center-block logo animated flip" alt="...">
+				</div>
+				<div class="col-md-12">
+					<a href="#items" class="btn btn-circle center-block page-scroll"> <i class="fa fa-angle-down animated"></i> </a>
+				</div>
+			</div>
+		</div>
+		<!-- / hero -->
+		<!-- nav -->
+		<div class="container-fluid" id="nav">
+			<div class="border">
+				<div class="container">
+					<div class="col-md-12">
+						<h2 class="text-center text-uppercase color-white"> Emergency Preparedness Checklist </h2>
+					</div>
+					<div class="col-md-12">
+						<nav class="navbar navbar-default">
+							<!-- <div class="container"> -->
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<div class="text-center">
+									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar top-bar"></span>
+										<span class="icon-bar middle-bar"></span>
+										<span class="icon-bar bottom-bar"></span>
+									</button>
+								</div>
+								<!-- <a class="navbar-brand navbar-brand-centered" href="#">Brand</a> -->
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="navbar">
+								<ul class="nav navbar-nav">
+									<li>
+										<a href="#">All</a>
+									</li>
+									<li data-filter=".essentials" class="active">
+										<a href="#">Essentials</a>
+									</li>
+									<li data-filter=".useful">
+										<a href="#">Useful</a>
+									</li>
+									<li data-filter=".personal">
+										<a href="#">Personal</a>
+									</li>
+									<li data-filter=".family">
+										<a href="#">Family</a>
+									</li>
+									<li data-filter=".car">
+										<a href="#">Car</a>
+									</li>
+								</ul>
+								<ul class="nav navbar-nav navbar-right">
+									<li>
+										<a href="#">Link</a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modules <span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li>
+												<a href="#">Water</a>
+											</li>
+											<li>
+												<a href="#">Food</a>
+											</li>
+											<li>
+												<a href="#">Fire</a>
+											</li>
+											<li>
+												<a href="#">Signaling</a>
+											</li>
+											<li>
+												<a href="#">Orientation</a>
+											</li>
+											<li>
+												<a href="#">First aid</a>
+											</li>
+											<li>
+												<a href="#">Cooking</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+							<!-- </div> --><!-- /.container-fluid -->
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / nav -->
+		<!-- -->
+		<div class="container-fluid" id="items">
+			<div class="container">
+				<div id="freewall">
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/3_day_bag.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Bag</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button"> <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Yes </a>
+										<a href="#" class="btn btn-default" role="button"> <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> No </a>
+										<a href="#" class="btn btn-default" role="button"> <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Info </a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/bottled_water.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Water</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/canned-food.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Food</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/pot.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Pot</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/multitool.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Multitool 1</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/New-Protable-Solar-font-b-Radio-b-font-Hand-Crank-Self-Powered-Phone-Charger-3-LED.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Multitool 2</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/Light-My-Fire-Swedish-FireSteel-2-0-Army-12-000-Strike-Fire-Starter-with-Emergency-Whistle.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Multitool 3</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick useful">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/signal-flare-torch.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Torch</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/clotes.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Clotes</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/poncho.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Poncho</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/blanket.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Blanket</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/bandana.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Bandana</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/cellphone.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Phone</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/documents.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Documents</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/money.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Money</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/pencil-and-paper.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Notes</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/first-aid-kit.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">First aid kit</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/hygiene-kit.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Hygiene kit</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick useful">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/sewing-kit.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Sewing kit</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick personal">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/tape.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Tape</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick essentials">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/tape.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Tape</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick useful">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/paracord.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Cord</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick useful">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/wire.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Wire</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 brick useful">
+						<div class="flip-container" onclick="this.classList.toggle('hover');" ontouchstart="this.classList.toggle('hover');">
+							<div class="flipper">
+								<div class="front">
+									<img src="img/tpl/ziptie.jpg" class="img-responsive center-block" alt="...">
+								</div>
+								<div class="back">
+									<h3 class="text-center">Ziptie</h3>
+									<hr>
+									<p class="text-center">
+										Lorem ipsum dolor sit amet, ex summo maluisset pri.
+										Eu nec diam nonumy commune.
+										Ad eum eruditi epicuri, quodsi accusam eum in.
+									</p>
+									<p class="text-center">
+										<a href="#" class="btn btn-default" role="button">Yes</a>
+										<a href="#" class="btn btn-default" role="button">No</a>
+										<a href="#" class="btn btn-default" role="button">Info</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="chart text-center" data-percent="75" data-scale-color="#e42313">
+						<span>75%</span>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div>
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active">
+								<a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Rule</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Tips</a>
+							</li>
+							<li role="presentation">
+								<a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Building</a>
+							</li>
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane fade in active" id="tab1">
+								<p>
+									Survival Rule of Threes
+								</p>
+								<p>
+									In any extreme situation you cannot survive for more than:
+								</p>
+								<ul>
+									<li>
+										3 seconds without hope,
+									</li>
+									<li>
+										3 minutes without air,
+									</li>
+									<li>
+										3 hours without shelter,
+									</li>
+									<li>
+										3 days without water,
+									</li>
+									<li>
+										3 weeks without food.
+									</li>
+								</ul>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="tab2">
+								<p>
+									Remember these simple tips when making your kit:
+								</p>
+								<ul>
+									<li>
+										With bag space at a premium, clutter and free up space with consider packing multipurpose items.
+									</li>
+									<li>
+										Your kit should include 3 to 21 days supply.
+									</li>
+									<li>
+										Keep loose items in airtight plastic bags.
+									</li>
+									<li>
+										Gather the kit's items in easy-to-carry bag.
+									</li>
+									<li>
+										Store your kit in a convinient place known to all family members.
+									</li>
+									<li>
+										Put them within reach, near the exit you use most often.
+									</li>
+									<li>
+										Keep a smaller version of the kit in the trunk of your car.
+									</li>
+									<li>
+										Check, rotate, refresh and update your kit at least once a year.
+									</li>
+									<li>
+										This kit can not guarantee your survival
+									</li>
+								</ul>
+							</div>
+							<div role="tabpanel" class="tab-pane fade" id="tab3">
+								<p>
+									Building your kit with fallowing modules:
+								</p>
+								<ul>
+									<li>
+										Bottled water and ready-to-eat, non-perishable food
+									</li>
+									<li>
+										Clothes and shelter
+									</li>
+									<li>
+										Hygiene and first aid
+									</li>
+									<li>
+										Communication and signaling
+									</li>
+									<li>
+										Documents and money
+									</li>
+									<li>
+										Tools
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Collapsible Group Item #1 </a></h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Collapsible Group Item #2 </a></h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingThree">
+								<h4 class="panel-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Collapsible Group Item #3 </a></h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+								<div class="panel-body">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / -->
+		<!-- -->
+		<div class="container-fluid">
+			<div class="container">
+				<div class="col-md-12">
+
+				</div>
+			</div>
+		</div>
+		<!-- / -->
+		<!-- -->
+		<div class="container-fluid">
+			<div class="container">
+				<div class="col-md-12">
+					<h2 class="text-center text-uppercase color-red"> Statistics </h2>
+				</div>
+			</div>
+		</div>
+		<!-- / -->
+		<!-- signaling -->
+		<div class="container-fluid" id="signaling">
+			<div class="border">
+				<div class="container">
+					<div class="col-md-12">
+						<h2 class="text-center text-uppercase color-white">SOS signaling</h2>
+					</div>
+					<div class="col-md-6">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					</div>
+					<div class="col-md-6">
+						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / signaling -->
+		<!-- footer -->
+		<div class="container-fluid" id="footer">
+			<div class="border">
+				<div class="container">
+					<div class="col-md-12">
+						<a href="#services" class="btn btn-circle center-block scroll-up"> <i class="fa fa-angle-up animated"></i> </a>
+					</div>
+					<div class="col-md-12">
+						<p class="text-center">
+							2016 © Red Cross
+							<br/>
+							Made with love in Banja Luka, Republic of Serpska
+							<br/>
+							Web design and development by Nikola Tomic
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- / footer -->
+		<!-- SCRIPTS -->
+		<script language="javascript" src="js/app.js"></script>
+		<script language="javascript">
+			$(document).ready(function() {
+
+			});
+		</script>
+	</body>
+</html>
